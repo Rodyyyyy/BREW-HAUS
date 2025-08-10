@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BREW HAUS</title>
+   
+  </head>
+  <script>
+  window.addEventListener('load', () => {
+    const myModal = new bootstrap.Modal(document.getElementById('signupModal'));
+    const form = document.getElementById('signupForm');
+    const alertBox = document.getElementById('successAlert');
+
+    myModal.show(); 
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); 
+
+      if (form.checkValidity()) {
+        alertBox.classList.remove('d-none'); 
+        form.classList.remove('was-validated');
+        form.reset(); 
+      } else {
+        form.classList.add('was-validated'); 
+      }
+    });
+  });
+</script>
+
+  <body>
+
+    
+   <nav class="navbar navbar-expand-lg" style="background-color: #e7d1ff;">
+  <div class="container-fluid">
+
+
+      <div class="image">
+        <img src="BREW 2.jpeg" alt="Logo" class="logo" width="150" height="130">
+      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+
+      <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+  <i class="fas fa-shopping-bag"></i> View Cart
+</button>
+
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#menu">Menu</a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="#hours">Schedules</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Contact us</a>
+
+        </li>
+      </ul>
+              
+<nav aria-label="breadcrumb" class="my-4">
+  <ol class="breadcrumb" style="background-color: #e7d1ff; padding: 10px 15px; border-radius: 8px;">
+    <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: #333;">Home</a></li>
+    <li class="breadcrumb-item"><a href="#" style="text-decoration: none; color: #333;">Category</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="color: #5c3b8c;">Current Page</li>
+  </ol>
+</nav>
+
+     <form class="d-flex" role="search" id="searchForm">
+  <input id="searchInput" class="form-control me-2" type="search" placeholder="Search drinks..." aria-label="Search">
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero-section fade-in" style="animation-delay: 0.2s; background: linear-gradient(rgba(92, 59, 140, 0.7), rgba(231, 209, 255, 0.7)), url('hero-bg.jpg'); background-size: cover; height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white;">
+  <div>
+    <h1 style="font-size: 4rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Brew Haus</h1>
+    <p class="lead" style="font-size: 1.5rem;">Where every sip tells a story</p>
+    <a href="#menu" class="cute-menu-btn">Explore Menu</a>
+  </div>
+</section>
+
+
+
+<div class="d-flex justify-content-center align-items-center flex-column my-5" id="spinnerSection">
+  <div id="lavenderSpinner" class="spinner-border" style="color: #b98ce0; width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  
+  <p id="lovingQuote" class="mt-3 text-center fw-bold"
+     style="display: none; font-size: 1.7rem; font-style: italic; color: #5c3b8c; font-family: 'Segoe UI', cursive;">
+  </p>
+</div>
+
+
+<div id="drinkCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active text-center">
+      <img src="cold brew.jpeg" class="d-block mx-auto carousel-img" alt="Cold Brew">
+      <div class="carousel-caption text-dark">
+        <h5>☕ Cold Brew</h5>
+        <p>Slow-steeped for 20 hours, bold and smooth cold brew.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item text-center">
+      <img src="iced Matcha.jpeg" class="d-block mx-auto carousel-img" alt="Iced Matcha">
+      <div class="carousel-caption text-dark">
+        <h5>🍵 Iced Matcha</h5>
+        <p>Refreshing matcha with an earthy twist.</p>
+      </div>
+    </div>
+
+=    <div class="carousel-item text-center">
+      <img src="iced spainsh latte.jpeg" class="d-block mx-auto carousel-img" alt="Spanish Latte">
+      <div class="carousel-caption text-dark">
+        <h5>🥛 Iced Spanish Latte</h5>
+        <p>Creamy, rich, and perfect for coffee lovers.</p>
+      </div>
+    </div>
+
+  </div>
+
+ <button class="carousel-control-prev" type="button" data-bs-target="#drinkCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#drinkCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="">Next</span>
+</button>
+
+
+
+
+<div class="bestsellers-section"></div>
+<h1 class="h1">Our Best Sellers</h1>
+
+<div class="container mt-5"> 
+  <div class="d-flex justify-content-center gap-4 flex-wrap">
+
+    <div class="card fade-up" style="width: 18rem;">
+      <div style="height: 60%; overflow: hidden;">
+        <img src="very new matcha.jpg" class="card-img-top uniform-img h-100 w-100" style="object-fit: cover;" alt="Iced Match">
+      </div>
+      <div class="card-body" style="height: 40%;">
+        <h5 class="card-title">Iced Match</h5>
+        <p class="card-text">A refreshing iced matcha drink with a smooth earthy flavor.</p>
+        <h6 class="h6"><b>$3.99</b></h6>
+        <span class="badge bg-success text-dark">Popular</span>
+        <a href="#" class="btn btn-primary">Order Now</a>
+      </div>
+    </div>
+
+ 
+    <div class="card fade-up" style="width: 18rem;">
+      <div style="height: 60%; overflow: hidden;">
+        <img src="iced spainsh latte.jpeg" class="card-img-top uniform-img h-100 w-100" style="object-fit: cover;" alt="Iced Spanish Latte">
+      </div>
+      <div class="card-body" style="height: 40%;">
+        <h5 class="card-title">Iced Spanish Latte</h5>
+        <p class="card-text">A sweet and creamy Spanish latte, perfect for coffee lovers.</p>
+        <h6 class="h6"><b>$4.99</b></h6>
+        <span class="badge bg-success text-dark">Popular</span>
+        <a href="#" class="btn btn-primary">Order Now</a>
+      </div>
+    </div>
+
+    <div class="card fade-up" style="width: 18rem;">
+      <div style="height: 60%; overflow: hidden;">
+        <img src="cold brew.jpeg" class="card-img-top uniform-img h-100 w-100" style="object-fit: cover;" alt="Cold Brew">
+      </div>
+      <div class="card-body" style="height: 40%;">
+        <h5 class="card-title">Cold Brew</h5>
+        <p class="card-text">Smooth, slow-steeped cold brew with a bold, rich flavor.</p>
+        <h6 class="h6"><b>$2.99</b></h6>
+        <span class="badge bg-success text-dark">Popular</span>
+        <a href="#" class="btn btn-primary">Order Now</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #e7d1ff;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up to be part of our community</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="alert alert-success d-none" id="successAlert" role="alert">
+          ✅ Sign-up successful!
+        </div>
+
+        <form id="signupForm" novalidate>
+          <div class="mb-3">
+            <label for="nameInput" class="form-label">Name</label>
+            <input type="text" class="form-control" id="nameInput" required autocomplete="off" placeholder="Name">
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailInput" required autocomplete="off" placeholder="you@example.com">
+            <div class="invalid-feedback">Please enter a valid email (must include @).</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="passwordInput" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInput" required autocomplete="new-password" placeholder="Password">
+            <div class="invalid-feedback">Please enter a password.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #e7d1ff;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Your Cart Summary</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <p class="fs-5">🛒 Items in Cart: <span id="cart-items-modal">0</span></p>
+        <p class="fs-5">💰 Total Amount: $<span id="cart-amount-modal">0.00</span></p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" id="clearCartModal">Clear Cart</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <hr>
+<h1 class="h1" id="menu"> Our Menu </h1>
+
+
+<ul class="nav nav-tabs my-4" id="drinkTabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="matcha-tab" data-bs-toggle="tab" data-bs-target="#matcha" type="button" role="tab" aria-controls="matcha" aria-selected="true">Matcha</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="coffee-tab" data-bs-toggle="tab" data-bs-target="#coffee" type="button" role="tab" aria-controls="coffee" aria-selected="false">Coffee</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="sweettooth-tab" data-bs-toggle="tab" data-bs-target="#sweettooth" type="button" role="tab" aria-controls="sweettooth" aria-selected="false">Sweet Tooth</button>
+  </li>
+</ul>
+
+<div class="tab-content" id="drinkTabsContent">
+  <div class="tab-pane fade show active" id="matcha" role="tabpanel" aria-labelledby="matcha-tab">
+    <div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
+       
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="iced Matcha.jpeg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Iced Matcha">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Iced Matcha Cold Foam</h5>
+          <p class="card-text">A refreshing iced matcha cold foam drink with a smooth earthy flavor.</p>
+          <h6 class="h6"><b>$3.99</b></h6>
+          <span class="badge bg-success">Popular</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="very new matcha.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Iced Matcha">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Iced Matcha</h5>
+          <p class="card-text">A iced matcha drink with a smooth earthy flavor.</p>
+          <h6 class="h6"><b>$3.99</b></h6>
+          <span class="badge bg-success">Popular</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="new Matcha.jpeg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Coconut Matcha">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Coconut Matcha</h5>
+          <p class="card-text">A Chilled cup of creamy Coconut matcha latte.</p>
+          <h6 class="h6"><b>$5.99</b></h6>
+          <span class="badge bg-warning text-dark">New</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="coffee" role="tabpanel" aria-labelledby="coffee-tab">
+    <div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="cold brew.jpeg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Cold Brew">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Cold Brew</h5>
+          <p class="card-text">Slow-steeped for 20 hours, bold and smooth cold brew.</p>
+          <h6 class="h6"><b>$2.99</b></h6>
+          <span class="badge bg-success text-dark">Popular</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="Caramel M.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Caramel Macchiato">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Caramel Macchiato</h5>
+          <p class="card-text">A blend of espresso and milk, layered with rich caramel.</p>
+          <h6 class="h6"><b>$2.99</b></h6>
+          <span class="badge bg-success text-dark">Popular</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="new new latte.png" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Latte">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Iced Latte</h5>
+          <p class="card-text">Iced espresso blended with milk for a smooth, refreshing experience.</p>
+          <h6 class="h6"><b>$2.99</b></h6>
+          <span class="badge bg-success text-dark">Popular</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+
+
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="iced toffe nut latte.jpeg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Toffee Nut Latte">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Toffee Nut Latte</h5>
+          <p class="card-text">A sweet and nutty twist on the classic latte, perfect iced or hot.</p>
+          <h6 class="h6"><b>$2.99</b></h6>
+          <span class="badge bg-danger">Seasonal</span>
+          <a href="#" class="btn btn-primary">Order Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="sweettooth" role="tabpanel" aria-labelledby="sweettooth-tab">
+    <div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="new choco cookie.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Chocolate Chip Cookie">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Choco Chip Cookie</h5>
+          <p class="card-text">A classic chocolate chip cookie, soft and chewy with gooey chocolate chunks.</p>
+          <h6 class="h6"><b>$6.99</b></h6>
+          <span class="badge bg-success">Popular</span>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="Biscoff choco cookie.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Choco Biscoff Cookie">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Choco Biscoff Cookie</h5>
+          <p class="card-text">Rich chocolate cookie infused with crunchy Biscoff bits for a perfect melt-in-your-mouth treat.</p>
+          <h6 class="h6"><b>$4.99</b></h6>
+          <span class="badge bg-warning text-dark">New</span>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="V cookies.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Valentine Cookie">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Love Cookie</h5>
+          <p class="card-text">A limited-edition delight crafted with strawberry swirls, white chocolate, and love in every bite.</p>
+          <h6 class="h6"><b>$8.99</b></h6>
+          <span class="badge bg-danger text-dark">Limited-edition</span>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+
+
+      
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="brownies.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="brwonies">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Fudgy Dream</h5>
+          <p class="card-text">A rich, fudgy brownie with a crackly top, loaded with melty chocolate chunks. </p>
+          <h6 class="h6"><b>$8.99</b></h6>
+          <span class="badge bg-warning text-dark">New</span>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div style="height: 60%; overflow: hidden;">
+          <img src="sniker doodle Cookie.jpg" class="card-img-top h-100 w-100" style="object-fit: cover;" alt="Snicker Doodle Cookie">
+        </div>
+        <div class="card-body" style="height: 40%;">
+          <h5 class="card-title">Snicker Doodle Cookie</h5>
+          <p class="card-text">Soft-baked cinnamon sugar cookie with a warm, buttery center and a cozy spice finish.</p>
+          <h6 class="h6"><b>$5.99</b></h6>
+          <span class="badge bg-warning text-dark">New</span>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<nav aria-label="Tab pagination">
+  <ul class="pagination justify-content-center mt-4">
+    <li class="page-item">
+      <a class="page-link" href="#" data-bs-toggle="tab" data-bs-target="#matcha">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#" data-bs-toggle="tab" data-bs-target="#coffee">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#" data-bs-toggle="tab" data-bs-target="#sweettooth">3</a>
+    </li>
+  </ul>
+</nav>
+
+
+<hr>
+
+
+<section id="about" class="py-5" style="background-color: #f8f2ff;">
+  <div class="container text-center">
+    <h2 class="mb-4" style="color: #5c3b8c;">About Us</h2>
+    <p class="lead" style="max-width: 800px; margin: auto;">
+      At <strong>Brew Haus</strong>, we're passionate about crafting exceptional drinks that bring people together.
+      Whether it's a bold espresso, a smooth matcha, or a seasonal sweet treat, we pour our heart into every sip and bite.
+      Our café is a space to relax, connect, and enjoy moments worth savoring, one cup at a time.
+    </p>
+  </div>
+</section>
+
+
+
+
+<section class="py-5" style="background-color: #f8f2ff;">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: #5c3b8c; font-family: 'Segoe UI', cursive;">💡 Why Choose Brew Haus?</h2>
+
+    <div class="accordion" id="cuteAccordion">
+      
+      <div class="accordion-item" style="border: none; border-radius: 10px; margin-bottom: 1rem;">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+            style="background-color: #e7d1ff; font-weight: bold; color: #5c3b8c;">
+            🌿 Handcrafted with Love
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#cuteAccordion">
+          <div class="accordion-body" style="background-color: #fff0ff;">
+            Every drink and treat is made with love, precision, and the finest ingredients to make your day extra special.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="accordion-item" style="border: none; border-radius: 10px; margin-bottom: 1rem;">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+            style="background-color: #e7d1ff; font-weight: bold; color: #5c3b8c;">
+            ☕ Locally Loved
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#cuteAccordion">
+          <div class="accordion-body" style="background-color: #fff0ff;">
+            Our community is our family. Brew Haus is a cozy spot where locals gather, share stories, and sip smiles.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="border: none; border-radius: 10px;">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+            style="background-color: #e7d1ff; font-weight: bold; color: #5c3b8c;">
+            🍪 Sweet Surprises Await
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+          data-bs-parent="#cuteAccordion">
+          <div class="accordion-body" style="background-color: #fff0ff;">
+            From cookies to seasonal specials, we always have something delightful waiting just for you.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="hours" class="py-5" style="background-color: #f8f2ff;">
+  <div class="container text-center">
+    <h2 class="mb-4" style="color: #5c3b8c;">🕒 Our Opening Hours</h2>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle shadow-sm" style="background-color: #fff;">
+        <thead class="table-light">
+          <tr>
+            <th>Day</th>
+            <th>Opening Time</th>
+            <th>Closing Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>7:00 AM</td>
+            <td>8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>7:00 AM</td>
+            <td>8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>7:00 AM</td>
+            <td>8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>7:00 AM</td>
+            <td>8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Closed</td>
+            <td>Closed</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>8:00 AM</td>
+            <td>10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>8:00 AM</td>
+            <td>6:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+ <hr>
+<footer id="footer" style="background-color: #e7d1ff;" class="text-dark py-5">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Visit Us</h5>
+        <p>📍 123 Coffee Street, Bean City</p>
+        <p>📞 (555) 123-COFFEE</p>
+        <p>⏰ Open 7AM - 8PM Daily</p>
+      </div>
+
+      <div class="social-icons">
+
+  <a href="mailto:hello@brewhaus.com" class="social-icon">
+    <i class="fas fa-envelope"></i>
+  </a>
+  
+  <a href="https://facebook.com/yourpage" target="_blank" class="social-icon">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  
+
+  <a href="https://instagram.com/brewhaus" target="_blank" class="social-icon">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+
+      <div class="col-md-4 mb-4">
+        <h5 class="mb-3">Newsletter</h5>
+        <form>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Your email">
+          </div>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+   <a href="https://maps.google.com?q=123+Coffee+Street,+Bean+City" 
+   class="directions-btn"
+   target="_blank">
+  <i class="fas fa-map-marker-alt me-2"></i> Get Directions
+</a>
+   
+
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <h6 class="fw-bold">💬 Share Your Thoughts</h6>
+        <form>
+          <textarea class="form-control mb-2" rows="3" placeholder="Share your thoughts about our coffee ☕️"></textarea>
+          <button type="submit" class="btn btn-outline-dark">Submit</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-6 mb-3"></div>
+
+
+      <div class="text-center">
+      <p class="rights">© 2025 Brew Haus. All rights reserved.</p>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</footer>
+
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    
+    <script>
+  let total = 0;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartTotal = document.createElement('div');
+    cartTotal.id = 'cart-total';
+    cartTotal.style.position = 'fixed';
+    cartTotal.style.bottom = '20px';
+    cartTotal.style.right = '20px';
+    cartTotal.style.backgroundColor = '#e7d1ff';
+    cartTotal.style.padding = '10px 20px';
+    cartTotal.style.borderRadius = '10px';
+    cartTotal.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+    cartTotal.style.fontWeight = 'bold';
+    cartTotal.style.zIndex = '9999';
+    cartTotal.textContent = 'Cart Total: $0.00';
+    document.body.appendChild(cartTotal);
+
+    document.querySelectorAll('.card').forEach(card => {
+      const priceText = card.querySelector('h6').innerText;
+      const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+      const button = card.querySelector('.btn.btn-primary');
+      button.textContent = 'Add to Cart';
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        total += price;
+        cartTotal.textContent = `Cart Total: $${total.toFixed(2)}`;
+      });
+    });
+  });
+</script>
+
+<script>
+  const quotes = [
+    "Love brews stronger than coffee. 💕",
+    "You're the sugar to our brew. ☕️💖",
+    "Every sip brings us closer. 🌸",
+    "Made with love, just for you. ❤️",
+    "Our drinks are warm, but your heart is warmer. 🔥"
+  ];
+
+
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.getElementById('lavenderSpinner').style.display = 'none';
+      const quoteEl = document.getElementById('lovingQuote');
+      quoteEl.innerText = quote;
+      quoteEl.style.display = 'block';
+    }, 2500);
+  });
+</script>
+
+
+
+<script>
+document.getElementById('searchBtn').addEventListener('click', function () {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.product-card');
+  let found = false;
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (text.includes(input)) {
+      card.style.display = 'block';
+      found = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.getElementById('noResults').style.display = found ? 'none' : 'block';
+});
+</script>
+
+
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function() {
+  const searchTerm = this.value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  let hasResults = false;
+
+  cards.forEach(card => {
+    const cardText = card.innerText.toLowerCase();
+    if (cardText.includes(searchTerm)) {
+      card.style.display = 'block';
+      hasResults = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const noResults = document.getElementById('noResults');
+  noResults.style.display = hasResults ? 'none' : 'block';
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
+
+<script>
+document.getElementById('searchInput').addEventListener('input', function() {
+  const searchTerm = this.value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  let hasResults = false;
+
+  cards.forEach(card => {
+    const cardText = card.innerText.toLowerCase();
+    if (cardText.includes(searchTerm)) {
+      card.style.display = 'block';
+      hasResults = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  const noResults = document.getElementById('noResults');
+  noResults.style.display = hasResults ? 'none' : 'block';
+
+
+  const markInstance = new Mark(document.querySelectorAll('.card-body'));
+  markInstance.unmark({
+    done: function() {
+      if (searchTerm) {
+        markInstance.mark(searchTerm);
+      }
+    }
+  });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<div class="offcanvas offcanvas-end" id="cartOffcanvas" tabindex="-1" aria-labelledby="cartOffcanvasLabel" style="background-color: #f8f2ff;">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="cartOffcanvasLabel">
+          <i class="fas fa-shopping-bag me-2"></i> Your Cart
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      
+      <div class="offcanvas-body">
+
+        <div class="loyalty-progress mb-4">
+          <h6 class="text-center mb-3" style="color: #5c3b8c;">
+            <i class="fas fa-gift me-2"></i> 2 more drinks to unlock a free matcha!
+          </h6>
+          <div class="progress" style="height: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                 role="progressbar" 
+                 style="width: 65%; background-color: #b98ce0; font-weight: 500;"
+                 aria-valuenow="65" 
+                 aria-valuemin="0" 
+                 aria-valuemax="100">
+              65% Complete
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-items mb-4">
+          <div class="d-flex align-items-center mb-3 p-3" style="background-color: white; border-radius: 10px;">
+            <img src="iced-matcha.jpeg" alt="Iced Matcha" width="60" class="rounded me-3">
+            <div class="flex-grow-1">
+              <h6 class="mb-1">Iced Matcha</h6>
+              <small class="text-muted">Size: Large</small>
+            </div>
+            <div class="text-end">
+              <span class="fw-bold">$4.99</span>
+              <button class="btn btn-sm btn-outline-danger ms-2">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+          
+
+          <div class="d-flex align-items-center mb-3 p-3" style="background-color: white; border-radius: 10px;">
+            <img src="cold-brew.jpeg" alt="Cold Brew" width="60" class="rounded me-3">
+            <div class="flex-grow-1">
+              <h6 class="mb-1">Cold Brew</h6>
+              <small class="text-muted">Size: Medium</small>
+            </div>
+            <div class="text-end">
+              <span class="fw-bold">$3.99</span>
+              <button class="btn btn-sm btn-outline-danger ms-2">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="cart-summary p-3" style="background-color: white; border-radius: 10px;">
+          <div class="d-flex justify-content-between mb-2">
+            <span>Subtotal:</span>
+            <span>$8.98</span>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <span>Tax:</span>
+            <span>$0.72</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold">
+            <span>Total:</span>
+            <span style="color: #5c3b8c;">$9.70</span>
+          </div>
+        </div>
+
+
+        <button class="btn btn-primary w-100 mt-4 py-3 fw-bold" style="background-color: #5c3b8c; border: none;">
+          <i class="fas fa-credit-card me-2"></i> Checkout
+        </button>
+      </div>
+    </div>
+
+
+
+
+
+
+  </body>
+</html>
